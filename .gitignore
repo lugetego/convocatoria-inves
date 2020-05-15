@@ -30,7 +30,9 @@ app/config/parameters.ini
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
-/web/submissions/*
+/web/submissions/
+/web/submissions.old/
+/web/submissions.old18
 
 # Assets managed by Bower
 /web/assets/vendor/

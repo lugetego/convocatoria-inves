@@ -72,7 +72,7 @@ class RegistroController extends Controller
 
 
         $now = new \DateTime();
-        $deadline = new \DateTime('2020-06-01');
+        $deadline = new \DateTime('2020-08-22');
         if($now >= $deadline){
             return $this->render('registro/closed.html.twig');
         }
@@ -100,8 +100,10 @@ class RegistroController extends Controller
                 ->setSubject('Acuse de recibo/Acknowledgment')
                 ->setFrom('webmaster@matmor.unam.mx')
                 ->setTo(array($registro->getMail()))
-                ->setBcc(array('gerardo@matmor.unam.mx','vorozco@matmor.unam.mx','abel@matmor.unam.mx','daniel@matmor.unam.mx'))
-                ->setBody($this->renderView('registro/mail.txt.twig', array('entity' => $registro)))
+               // ->setBcc(array('gerardo@matmor.unam.mx','vorozco@matmor.unam.mx','abel@matmor.unam.mx','daniel@matmor.unam.mx'))
+                ->setBcc(array('gerardo@matmor.unam.mx'))
+
+               ->setBody($this->renderView('registro/mail.txt.twig', array('entity' => $registro)))
             ;
             $mailer->send($message);
 
